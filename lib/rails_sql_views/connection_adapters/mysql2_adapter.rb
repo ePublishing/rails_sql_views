@@ -2,7 +2,7 @@ module RailsSqlViews
   module ConnectionAdapters
     module Mysql2Adapter
       def self.included(base)
-        if base.private_method_defined?(:supports_views?)
+        if base.private_method_defined?(:supports_views?) || base.protected_method_defined?(:supports_views?)
           base.send(:public, :supports_views?)
         end
       end
